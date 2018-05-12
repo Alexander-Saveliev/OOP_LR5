@@ -25,6 +25,10 @@ struct Rational {
         return denominator
     }
     
+    var value: Double {
+        return Double(numerator) / Double(denominator)
+    }
+    
     
     private var numerator  : Int
     private var denominator: Int
@@ -185,13 +189,13 @@ extension Rational {
     static prefix func >> (value: inout Rational) {
         let divSign = "/"
         
-        if let lines = readLine()?.components(separatedBy: " ") {
-            if let left = Int(lines[0]),
-                let right = Int(lines[2]),
-                lines[1] == divSign {
-                    value.numerator = left
-                    value.denominator = right
-            }
+        if let lines = readLine()?.components(separatedBy: " "),
+        lines.count == 3,
+        let left = Int(lines[0]),
+        let right = Int(lines[2]),
+        lines[1] == divSign {
+            value.numerator = left
+            value.denominator = right
         } else {
             value = Rational()
         }

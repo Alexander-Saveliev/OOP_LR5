@@ -382,4 +382,14 @@ class test_LR51: XCTestCase {
         XCTAssertTrue(left >= right)
     }
     
+    // MARK: - Other -
+    func testOutValue() {
+        var value = Rational(withNumerator: 1, andDenominator: 2)
+        XCTAssertEqual(value.value, 0.5, accuracy: 0.005)
+    }
+    
+    func testOutValueInf() {
+        var value = Rational(withNumerator: 1, andDenominator: 0)
+        XCTAssertEqual(value.value, Double.infinity)
+    }
 }
