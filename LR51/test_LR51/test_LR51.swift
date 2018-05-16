@@ -392,4 +392,23 @@ class test_LR51: XCTestCase {
         var value = Rational(withNumerator: 1, andDenominator: 0)
         XCTAssertEqual(value.value, Double.infinity)
     }
+    
+    // MARK: - Compound -
+    func testFromExample() {
+        var value = Rational(withNumerator: 9, andDenominator: 4)
+        var compound = value.toCompoundFraction()
+        
+        XCTAssertEqual(compound.0, 2)
+        XCTAssertEqual(compound.1.numerator, 1)
+        XCTAssertEqual(compound.1.denominator, 4)
+    }
+    
+    func testFromExampleMinus() {
+        var value = Rational(withNumerator: -9, andDenominator: 4)
+        var compound = value.toCompoundFraction()
+        
+        XCTAssertEqual(compound.0, -2)
+        XCTAssertEqual(compound.1.numerator, 1)
+        XCTAssertEqual(compound.1.denominator, 4)
+    }
 }

@@ -22,6 +22,15 @@ struct Rational {
         return Double(numerator) / Double(denominator)
     }
     
+    public func toCompoundFraction() -> (Int, Rational) {
+        let full   = numerator / denominator
+        var adding = Rational(withNumerator: numerator % denominator, andDenominator: denominator)
+        
+        if adding.numerator < 0 {
+            adding.numerator = -adding.numerator
+        }
+        return (full, adding)
+    }
     
     private mutating func reduce() {
         func greatestCommonDivisor() -> Int {

@@ -13,4 +13,3 @@ var result = Rational(withNumerator: -1, andDenominator: 10)
 >>result
 
 <<result
-
