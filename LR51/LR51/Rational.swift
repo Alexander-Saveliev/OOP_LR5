@@ -7,9 +7,10 @@
 //
 
 struct Rational {
+    public private(set) var numerator   = 0
+    public private(set) var denominator = 0
+    
     init() {
-        numerator   = 0
-        denominator = 0
     }
     
     init(withNumerator numerator: Int, andDenominator denominator: Int) {
@@ -17,21 +18,10 @@ struct Rational {
         self.denominator = denominator
     }
     
-    var getNumerator: Int {
-        return numerator
-    }
-    
-    var getDenominator: Int {
-        return denominator
-    }
-    
     var value: Double {
         return Double(numerator) / Double(denominator)
     }
     
-    
-    private var numerator  : Int
-    private var denominator: Int
     
     private mutating func reduce() {
         func greatestCommonDivisor() -> Int {
@@ -61,6 +51,7 @@ struct Rational {
 }
 
 
+// MARK: - Expansion of arithmetic operations -
 extension Rational {
     static prefix func + (value: Rational) -> Rational {
         var result = Rational(withNumerator: value.numerator, andDenominator: value.denominator)

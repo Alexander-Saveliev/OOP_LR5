@@ -16,8 +16,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 1, andDenominator: 3)
         let mult = left * right
         
-        XCTAssertEqual(mult.getNumerator, 1)
-        XCTAssertEqual(mult.getDenominator, 6)
+        XCTAssertEqual(mult.numerator, 1)
+        XCTAssertEqual(mult.denominator, 6)
     }
     
     func testMultiplicationWithReducing() {
@@ -25,8 +25,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 4, andDenominator: 3)
         let mult = left * right
         
-        XCTAssertEqual(mult.getNumerator, 1)
-        XCTAssertEqual(mult.getDenominator, 1)
+        XCTAssertEqual(mult.numerator, 1)
+        XCTAssertEqual(mult.denominator, 1)
     }
     
     func testMinusMultiplicationWithoutReducing() {
@@ -34,8 +34,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 1, andDenominator: 3)
         let mult = left * right
         
-        XCTAssertEqual(mult.getNumerator, -1)
-        XCTAssertEqual(mult.getDenominator, 6)
+        XCTAssertEqual(mult.numerator, -1)
+        XCTAssertEqual(mult.denominator, 6)
     }
     
     func testMinusMultiplicationWithReducing() {
@@ -43,8 +43,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 1, andDenominator: 3)
         let mult = left * right
         
-        XCTAssertEqual(mult.getNumerator, -1)
-        XCTAssertEqual(mult.getDenominator, 2)
+        XCTAssertEqual(mult.numerator, -1)
+        XCTAssertEqual(mult.denominator, 2)
     }
     
     func testZeroMultiplication() {
@@ -52,8 +52,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 1, andDenominator: 3)
         let mult = left * right
         
-        XCTAssertEqual(mult.getNumerator, 1)
-        XCTAssertEqual(mult.getDenominator, 0)
+        XCTAssertEqual(mult.numerator, 1)
+        XCTAssertEqual(mult.denominator, 0)
     }
     
     
@@ -63,8 +63,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 1, andDenominator: 3)
         let mult = left / right
         
-        XCTAssertEqual(mult.getNumerator, 3)
-        XCTAssertEqual(mult.getDenominator, 2)
+        XCTAssertEqual(mult.numerator, 3)
+        XCTAssertEqual(mult.denominator, 2)
     }
     
     func testDivisionWithReducing() {
@@ -72,8 +72,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 1, andDenominator: 4)
         let mult = left / right
         
-        XCTAssertEqual(mult.getNumerator, 2)
-        XCTAssertEqual(mult.getDenominator, 1)
+        XCTAssertEqual(mult.numerator, 2)
+        XCTAssertEqual(mult.denominator, 1)
     }
 
     func testMinusDivisionWithReducing() {
@@ -81,8 +81,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 1, andDenominator: 4)
         let mult = left / right
         
-        XCTAssertEqual(mult.getNumerator, -2)
-        XCTAssertEqual(mult.getDenominator, 1)
+        XCTAssertEqual(mult.numerator, -2)
+        XCTAssertEqual(mult.denominator, 1)
     }
     
     func testMinusDivisionWithoutReducing() {
@@ -90,8 +90,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: -1, andDenominator: 3)
         let mult = left / right
         
-        XCTAssertEqual(mult.getNumerator, 3)
-        XCTAssertEqual(mult.getDenominator, -2)
+        XCTAssertEqual(mult.numerator, 3)
+        XCTAssertEqual(mult.denominator, -2)
     }
     
     func testZeroNumeratorDivision() {
@@ -99,8 +99,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: -1, andDenominator: 3)
         let mult = left / right
         
-        XCTAssertEqual(mult.getNumerator, 0)
-        XCTAssertEqual(mult.getDenominator, -1)
+        XCTAssertEqual(mult.numerator, 0)
+        XCTAssertEqual(mult.denominator, -1)
     }
     
     func testZeroDenominatorDivision() {
@@ -108,8 +108,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 0, andDenominator: 3)
         let mult = left / right
         
-        XCTAssertEqual(mult.getNumerator, 1)
-        XCTAssertEqual(mult.getDenominator, 0)
+        XCTAssertEqual(mult.numerator, 1)
+        XCTAssertEqual(mult.denominator, 0)
     }
     
     
@@ -118,23 +118,23 @@ class test_LR51: XCTestCase {
         let value  = Rational(withNumerator: 1, andDenominator: 2)
         let plusValue = +value
 
-        XCTAssertEqual(plusValue.getNumerator, 1)
-        XCTAssertEqual(plusValue.getDenominator, 2)
+        XCTAssertEqual(plusValue.numerator, 1)
+        XCTAssertEqual(plusValue.denominator, 2)
     }
     
     func testUnarPlusZero() {
         let value  = Rational(withNumerator: 0, andDenominator: 2)
         let plusValue = +value
         
-        XCTAssertEqual(plusValue.getNumerator, 0)
-        XCTAssertEqual(plusValue.getDenominator, 1)
+        XCTAssertEqual(plusValue.numerator, 0)
+        XCTAssertEqual(plusValue.denominator, 1)
     }
     func testUnarZeroWithoutReduce() {
         let value  = Rational(withNumerator: 3, andDenominator: 5)
         let plusValue = +value
         
-        XCTAssertEqual(plusValue.getNumerator, 3)
-        XCTAssertEqual(plusValue.getDenominator, 5)
+        XCTAssertEqual(plusValue.numerator, 3)
+        XCTAssertEqual(plusValue.denominator, 5)
     }
     
     // MARK: - Unar minus -
@@ -142,23 +142,23 @@ class test_LR51: XCTestCase {
         let value  = Rational(withNumerator: 1, andDenominator: 2)
         let plusValue = -value
         
-        XCTAssertEqual(plusValue.getNumerator, -1)
-        XCTAssertEqual(plusValue.getDenominator, 2)
+        XCTAssertEqual(plusValue.numerator, -1)
+        XCTAssertEqual(plusValue.denominator, 2)
     }
     
     func testUnarMinusZero() {
         let value  = Rational(withNumerator: 0, andDenominator: 2)
         let plusValue = -value
         
-        XCTAssertEqual(plusValue.getNumerator, 0)
-        XCTAssertEqual(plusValue.getDenominator, 1)
+        XCTAssertEqual(plusValue.numerator, 0)
+        XCTAssertEqual(plusValue.denominator, 1)
     }
     func testUnarMinusWithoutReduce() {
         let value  = Rational(withNumerator: 3, andDenominator: 5)
         let plusValue = -value
         
-        XCTAssertEqual(plusValue.getNumerator, -3)
-        XCTAssertEqual(plusValue.getDenominator, 5)
+        XCTAssertEqual(plusValue.numerator, -3)
+        XCTAssertEqual(plusValue.denominator, 5)
     }
     
     // MARK: - Binary plus -
@@ -167,8 +167,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 1, andDenominator: 3)
         let plus = left + right
         
-        XCTAssertEqual(plus.getNumerator, 5)
-        XCTAssertEqual(plus.getDenominator, 6)
+        XCTAssertEqual(plus.numerator, 5)
+        XCTAssertEqual(plus.denominator, 6)
     }
     
     func testBinaryPlusWithReduce() {
@@ -176,8 +176,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: -3, andDenominator: 4)
         let plus = left + right
         
-        XCTAssertEqual(plus.getNumerator, -1)
-        XCTAssertEqual(plus.getDenominator, 2)
+        XCTAssertEqual(plus.numerator, -1)
+        XCTAssertEqual(plus.denominator, 2)
     }
     
     func testBinaryPlusWithReduceMinus() {
@@ -185,8 +185,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 2, andDenominator: 4)
         let plus = left + right
         
-        XCTAssertEqual(plus.getNumerator, 0)
-        XCTAssertEqual(plus.getDenominator, 1)
+        XCTAssertEqual(plus.numerator, 0)
+        XCTAssertEqual(plus.denominator, 1)
     }
     
     func testBinaryPlusWithZeor() {
@@ -194,8 +194,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 0, andDenominator: 3)
         let plus = left + right
         
-        XCTAssertEqual(plus.getNumerator, 1)
-        XCTAssertEqual(plus.getDenominator, 2)
+        XCTAssertEqual(plus.numerator, 1)
+        XCTAssertEqual(plus.denominator, 2)
     }
     
     // MARK: - Binary minus -
@@ -204,8 +204,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 1, andDenominator: 3)
         let minus = left - right
         
-        XCTAssertEqual(minus.getNumerator, 1)
-        XCTAssertEqual(minus.getDenominator, 6)
+        XCTAssertEqual(minus.numerator, 1)
+        XCTAssertEqual(minus.denominator, 6)
     }
 
     func testBinaryMinusWithReduce() {
@@ -213,8 +213,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 3, andDenominator: 4)
         let minus = left - right
 
-        XCTAssertEqual(minus.getNumerator, -1)
-        XCTAssertEqual(minus.getDenominator, 2)
+        XCTAssertEqual(minus.numerator, -1)
+        XCTAssertEqual(minus.denominator, 2)
     }
 
     func testBinaryMinusWithReduceMinus() {
@@ -222,8 +222,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 2, andDenominator: 4)
         let minus = left - right
 
-        XCTAssertEqual(minus.getNumerator, -1)
-        XCTAssertEqual(minus.getDenominator, 1)
+        XCTAssertEqual(minus.numerator, -1)
+        XCTAssertEqual(minus.denominator, 1)
     }
 
     func testBinaryMinusWithZeor() {
@@ -231,8 +231,8 @@ class test_LR51: XCTestCase {
         let right = Rational(withNumerator: 0, andDenominator: 3)
         let minus = left - right
 
-        XCTAssertEqual(minus.getNumerator, 1)
-        XCTAssertEqual(minus.getDenominator, 2)
+        XCTAssertEqual(minus.numerator, 1)
+        XCTAssertEqual(minus.denominator, 2)
     }
     
     // MARK: - Increment -
@@ -241,8 +241,8 @@ class test_LR51: XCTestCase {
         let plus = Rational(withNumerator: 1, andDenominator: 3)
         value += plus
 
-        XCTAssertEqual(value.getNumerator, 5)
-        XCTAssertEqual(value.getDenominator, 6)
+        XCTAssertEqual(value.numerator, 5)
+        XCTAssertEqual(value.denominator, 6)
     }
     
     // MARK: - Decrement -
@@ -251,8 +251,8 @@ class test_LR51: XCTestCase {
         let minus = Rational(withNumerator: 1, andDenominator: 3)
         value -= minus
         
-        XCTAssertEqual(value.getNumerator, 1)
-        XCTAssertEqual(value.getDenominator, 6)
+        XCTAssertEqual(value.numerator, 1)
+        XCTAssertEqual(value.denominator, 6)
     }
     
     // MARK: - *= -
@@ -261,8 +261,8 @@ class test_LR51: XCTestCase {
         let mult = Rational(withNumerator: 1, andDenominator: 3)
         value *= mult
         
-        XCTAssertEqual(value.getNumerator, 1)
-        XCTAssertEqual(value.getDenominator, 6)
+        XCTAssertEqual(value.numerator, 1)
+        XCTAssertEqual(value.denominator, 6)
     }
     
     // MARK: - /= -
@@ -271,8 +271,8 @@ class test_LR51: XCTestCase {
         let div = Rational(withNumerator: 1, andDenominator: 3)
         value /= div
         
-        XCTAssertEqual(value.getNumerator, 3)
-        XCTAssertEqual(value.getDenominator, 2)
+        XCTAssertEqual(value.numerator, 3)
+        XCTAssertEqual(value.denominator, 2)
     }
     
     // MARK: - Equal -
